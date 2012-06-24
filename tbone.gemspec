@@ -53,6 +53,7 @@ Gem::Specification.new do |s|
     "lib/generators/tbone/install/templates/requirejs.yml",
     "lib/tbone.rb",
     "lib/tbone/engine.rb",
+    "tbone.gemspec",
     "test/helper.rb",
     "test/test_tbone.rb"
   ]
