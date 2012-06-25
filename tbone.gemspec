@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{tbone}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Pavel Tatarsky}]
-  s.date = %q{2012-06-24}
+  s.date = %q{2012-06-25}
   s.description = %q{Library for mixing together requirejs backbone and twitter bootstrap}
   s.email = %q{fazzzenda@mail.ru}
   s.extra_rdoc_files = [
@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "app/assets/javascripts/backbone-rails.js.coffee",
+    "app/assets/javascripts/bootstrap.js.coffee",
     "app/assets/javascripts/collections/paginated.js.coffee",
     "app/assets/javascripts/helpers/alert_queue.js.coffee",
     "app/assets/javascripts/helpers/layout.js.coffee",
