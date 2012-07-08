@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{tbone}
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Pavel Tatarsky}]
-  s.date = %q{2012-06-25}
+  s.date = %q{2012-07-08}
   s.description = %q{Library for mixing together requirejs backbone and twitter bootstrap}
   s.email = %q{fazzzenda@mail.ru}
   s.extra_rdoc_files = [
@@ -49,9 +49,30 @@ Gem::Specification.new do |s|
     "app/views/home/index.html.haml",
     "app/views/tokens/show.json.rabl",
     "config/routes.rb",
+    "lib/generators/tbone/backbone_model/backbone_model_generator.rb",
+    "lib/generators/tbone/backbone_model/templates/collection.coffee.erb",
+    "lib/generators/tbone/backbone_model/templates/model.coffee.erb",
     "lib/generators/tbone/install/install_generator.rb",
     "lib/generators/tbone/install/templates/application.json.rabl",
     "lib/generators/tbone/install/templates/requirejs.yml",
+    "lib/generators/tbone/rabl_views/rabl_views_generator.rb",
+    "lib/generators/tbone/rabl_views/templates/index.rabl.erb",
+    "lib/generators/tbone/rabl_views/templates/show.rabl.erb",
+    "lib/generators/tbone/scaffold/scaffold_generator.rb",
+    "lib/generators/tbone/scaffold_backbone_router/scaffold_backbone_router_generator.rb",
+    "lib/generators/tbone/scaffold_backbone_router/templates/confirm.hamljs.erb",
+    "lib/generators/tbone/scaffold_backbone_router/templates/edit_view.coffee.erb",
+    "lib/generators/tbone/scaffold_backbone_router/templates/form.hamljs.erb",
+    "lib/generators/tbone/scaffold_backbone_router/templates/index.hamljs.erb",
+    "lib/generators/tbone/scaffold_backbone_router/templates/index_view.coffee.erb",
+    "lib/generators/tbone/scaffold_backbone_router/templates/new_view.coffee.erb",
+    "lib/generators/tbone/scaffold_backbone_router/templates/object.hamljs.erb",
+    "lib/generators/tbone/scaffold_backbone_router/templates/object_view.coffee.erb",
+    "lib/generators/tbone/scaffold_backbone_router/templates/router.coffee.erb",
+    "lib/generators/tbone/scaffold_backbone_router/templates/show.hamljs.erb",
+    "lib/generators/tbone/scaffold_backbone_router/templates/show_view.coffee.erb",
+    "lib/generators/tbone/scaffold_controller/scaffold_controller_generator.rb",
+    "lib/generators/tbone/scaffold_controller/templates/controller.rb.erb",
     "lib/tbone.rb",
     "lib/tbone/engine.rb",
     "tbone.gemspec",
