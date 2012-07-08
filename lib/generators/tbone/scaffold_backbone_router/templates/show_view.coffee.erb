@@ -8,7 +8,7 @@ define [
   'templates/<%= plural_name %>/confirm'
 ], ($, Backbone, App, ConfirmView, AlertView) ->
 
-  class App.Views.<% class_name.pluralize %>.ShowView extends AlertView
+  class App.Views.<%= class_name.pluralize %>.ShowView extends AlertView
     template: JST["templates/<%= plural_name %>/show"]
 
     events:

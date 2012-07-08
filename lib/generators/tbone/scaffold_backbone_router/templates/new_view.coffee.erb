@@ -7,9 +7,9 @@ define [
   'i18n'
 ], ($, Backbone, App, FormView) ->
 
-  class App.Views.<% class_name.pluralize %>.NewView extends FormView
+  class App.Views.<%= class_name.pluralize %>.NewView extends FormView
     template: JST["templates/<%= plural_name %>/form"]
-    success: (<% single_name %>) ->
-      @model = <% single_name %>
+    success: (<%= single_name %>) ->
+      @model = <%= single_name %>
       @addSuccessAlert(I18n.t '<%= plural_name %>.created')
       window.location.hash = "/<%= plural_name %>/#{@model.id}"
