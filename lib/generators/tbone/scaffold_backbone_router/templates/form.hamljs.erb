@@ -1,0 +1,12 @@
+%form
+  %fieldset
+    %legend= this.model.isNew() ? I18n.t('<%= plural_name %>.new') : I18n.t('<%= plural_name %>.new')
+
+    # .control-group
+    #   %label.control-label{for: "field"} Field:
+    #   .controls
+    #     %input.span6{name: "field", type: "text", value: field || '' }
+
+    .form-actions
+      %input.btn.btn-primary{type: "submit"}
+      %a.btn{href: "#/<%= plural_name %>/index"}= I18n.t('back')

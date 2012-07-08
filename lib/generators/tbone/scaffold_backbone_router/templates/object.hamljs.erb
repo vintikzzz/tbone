@@ -1,0 +1,10 @@
+%td!= id
+
+- var show_link = "#/<%= plural_name %>/" + id
+- var edit_link = "#/<%= plural_name %>/" + id + "/edit"
+- var destroy_link = "#/<%= plural_name %>/" + id + "/destroy"
+
+%td
+  %a.btn.btn-min1{href: show_link}= I18n.t('show')
+  %a.btn.btn-min1{href: edit_link}= I18n.t('edit')
+  %a.destroy.btn.btn-min1.btn-danger.confirm{href: destroy_link}= I18n.t('destroy')

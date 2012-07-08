@@ -1,0 +1,49 @@
+class <%= class_name.pluralize %>Controller < ApplicationController
+  # GET /<%= plural_name %>.json
+  def index
+    @<%= plural_name %> = <%= class_name %>.page(params[:page])
+  end
+
+  # GET /<%= plural_name %>/1.json
+  def show
+    @<%= plural_name.singularize %> = <%= class_name %>.find(params[:id])
+  end
+
+  # GET /<%= plural_name %>/new.json
+  def new
+    @<%= plural_name.singularize %> = <%= class_name %>.new
+  end
+
+  # GET /<%= plural_name %>/1/edit
+  def edit
+    @<%= plural_name.singularize %> = <%= class_name %>.find(params[:id])
+  end
+
+  # POST /<%= plural_name %>.json
+  def create
+    @<%= plural_name.singularize %> = <%= class_name %>.new(params[:<%= plural_name.singularize %>])
+
+    if @<%= plural_name.singularize %>.save
+      render action: "show", status: :created, location: @<%= plural_name.singularize %>
+    else
+      render json: @<%= plural_name.singularize %>.errors, status: :unprocessable_entity
+    end
+  end
+
+  # PUT /<%= plural_name %>/1.json
+  def update
+    @<%= plural_name.singularize %> = <%= class_name %>.find(params[:id])
+    if @<%= plural_name.singularize %>.update_attributes(params[:<%= plural_name.singularize %>])
+      render action: "show"
+    else
+      render json: @<%= plural_name.singularize %>.errors, status: :unprocessable_entity
+    end
+  end
+
+  # DELETE /<%= plural_name %>/1.json
+  def destroy
+    @<%= plural_name.singularize %> = <%= class_name %>.find(params[:id])
+    @<%= plural_name.singularize %>.destroy
+    head :no_content
+  end
+end

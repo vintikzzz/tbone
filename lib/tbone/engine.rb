@@ -36,6 +36,9 @@ module Tbone
       conf['shim']['bootstrap-popover'] << 'bootstrap-tooltip'
       conf['shim']['bootstrap'] = jquery_plugs
       app.config.requirejs.user_config.deep_merge!(conf)
+      Rabl.configure do |config|
+        config.include_json_root = false
+      end
     end
   end
 end

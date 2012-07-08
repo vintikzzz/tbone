@@ -1,0 +1,52 @@
+define [
+  'backbone'
+  'bootstrap'
+  'helpers/layout'
+  'views/<%= plural_name %>/index_view'
+  'views/<%= plural_name %>/new_view'
+  'views/<%= plural_name %>/show_view'
+  'views/<%= plural_name %>/edit_view'
+], (Backbone, App, Layout) ->
+  class App.Routers.<%= class_name.pluralize %>Router extends Backbone.Router
+    routes:
+      "<%= plural_name %>/new"              : "new<%= class_name %>"
+      "<%= plural_name %>/index"            : "index"
+      "<%= plural_name %>/index?page=:page" : "index"
+      "<%= plural_name %>/:id/edit"         : "edit"
+      "<%= plural_name %>/:id"              : "show"
+      "<%= plural_name %>.*"                : "index"
+
+    initialize: (options) ->
+      @<% plural_name %> = options.collection
+
+    new<% class_name %>: ->
+      view = require 'views/<% plural_name %>/new_view'
+      @view = new view(collection: @<% plural_name %>, model: new @<% plural_name %>.model())
+      Layout.setContent(@view)
+
+    index: (page = 1) ->
+      @<% plural_name %>.setPage(page)
+      View = require 'views/<% plural_name %>/index_view'
+      @view = new View(collection: @<% plural_name %>)
+      Layout.setContent(@view)
+
+    show: (id) ->
+      View = require 'views/<% plural_name %>/show_view'
+      <% single_name %> = this.get<% class_name %> id, (<% single_name %>) ->
+        @view = new View(model: <% single_name %>)
+        Layout.setContent(@view)
+
+    edit: (id) ->
+      View = require 'views/<% plural_name %>/edit_view'
+      this.get<% class_name %> id, (<% single_name %>) ->
+        @view = new View(model: <% single_name %>)
+        Layout.setContent(@view)
+
+    get<% class_name %>: (id, handler) ->
+      <% single_name %> = @<% plural_name %>.get(id)
+      if <% single_name %>?
+        handler(<% single_name %>)
+      else
+        <% single_name %> = new @<% plural_name %>.model()
+        <% single_name %>.id = id
+        <% single_name %>.fetch(success: handler)

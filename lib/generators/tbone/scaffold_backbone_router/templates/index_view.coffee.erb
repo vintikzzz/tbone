@@ -1,0 +1,41 @@
+define [
+  'jquery'
+  'backbone'
+  'bootstrap'
+  'views/<%= plural_name %>/<% single_name %>_view'
+  'views/common/pager_view'
+  'views/common/alert_view'
+  'templates/<%= plural_name %>/index'
+], ($, Backbone, App, <% class_name %>View, PagerView, AlertView) ->
+
+  class App.Views.<% class_name.pluralize %>.IndexView extends AlertView
+    template: JST["templates/<%= plural_name %>/index"]
+
+    initialize: ->
+      @collection.on('reset', @render, this)
+
+    addAll: ->
+      @collection.each(@addOne, this)
+
+    addPager: ->
+      view = new PagerView({collection: @collection, urlPrefix: '#<%= plural_name %>/index?page='})
+      $(@el).find("table").after(view.render().el)
+
+
+    addOne: (<% single_name %>) ->
+      view = new <% class_name %>View({model: <% single_name %>})
+      $(@el).find("tbody").append(view.render().el)
+
+    render: ->
+      $(@el).html(@template())
+      @addAll()
+      @addPager()
+      @renderAlerts()
+
+      return this
+
+    close: ->
+      super
+      @collection.off('reset', @render, this)
+      @remove()
+      @off()

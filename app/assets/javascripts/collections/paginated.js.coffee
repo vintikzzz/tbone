@@ -1,7 +1,10 @@
 define ['backbone'], (Backbone) ->
   class PaginatedCollection extends Backbone.Collection
     constructor: (args) ->
-      super(this.parse(args))
+      if args?
+        super(this.parse(args))
+      else
+        super
 
     initialize: ->
       # _.bindAll this, "parse", "url", "pageInfo", "nextPage", "previousPage"

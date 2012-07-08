@@ -5,10 +5,10 @@ define [], ->
     Routers: {}
     Helpers: {}
     Views: {
-      Posts: {}
       Common: {}
       Sessions: {}
       Tokens: {}
       Passwords: {}
       Confirmations: {}
-    }
+    },
+    Params: __params

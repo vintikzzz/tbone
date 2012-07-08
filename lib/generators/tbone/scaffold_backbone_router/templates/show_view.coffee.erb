@@ -1,0 +1,41 @@
+define [
+  'jquery'
+  'backbone'
+  'bootstrap'
+  'views/common/confirm_view'
+  'views/common/alert_view'
+  'templates/<%= plural_name %>/show'
+  'templates/<%= plural_name %>/confirm'
+], ($, Backbone, App, ConfirmView, AlertView) ->
+
+  class App.Views.<% class_name.pluralize %>.ShowView extends AlertView
+    template: JST["templates/<%= plural_name %>/show"]
+
+    events:
+      "click .destroy" : "destroy"
+
+    initialize: ->
+      @model.on('change', @render, this)
+
+    destroy: ->
+      view = new ConfirmView(template: JST['templates/<%= plural_name %>/confirm'])
+      view.on('accept', ->
+        @model.destroy()
+        this.remove()
+        @addSuccessAlert(I18n.t '<%= plural_name %>.destroyed')
+        window.location.hash = "/<%= plural_name %>/index"
+      , this)
+      $(@el).append(view.render().el)
+
+      return false
+
+    render: ->
+      $(@el).html(@template(@model.toJSON()))
+      @renderAlerts()
+      return this
+
+    close: ->
+      super
+      @model.off('change', @render, this)
+      @remove()
+      @off()

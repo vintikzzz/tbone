@@ -1,0 +1,15 @@
+%p
+  %strong Id:
+  %br
+  = id
+
+- var index_link = "#/<%= plural_name %>/index"
+- var edit_link = "#/<%= plural_name %>/" + id + "/edit"
+- var destroy_link = "#/<%= plural_name %>/" + id + "/destroy"
+
+.form-actions
+  .btn-toolbar
+    .btn-group
+      %a.btn{href: index_link}= I18n.t('back')
+      %a.btn{href: edit_link}= I18n.t('edit')
+      %a.destroy.btn.btn-danger{href: destroy_link}= I18n.t('destroy')

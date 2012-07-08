@@ -1,0 +1,4 @@
+define ['underscore', 'backbone', 'bootstrap'], (_, Backbone, App) ->
+  class App.Models.<%= class_name %> extends Backbone.Model
+    paramRoot: '<%= single_name %>'
+    urlRoot: '/<%= plural_name %>'

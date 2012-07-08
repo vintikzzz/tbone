@@ -1,0 +1,11 @@
+define [
+  'underscore'
+  'backbone'
+  'bootstrap'
+  'models/<%= single_name %>'
+  'collections/paginated'
+],
+(_, Backbone, App, <%= class_name %>, PaginatedCollection) ->
+  class App.Collections.<%= class_name.pluralize %> extends PaginatedCollection
+    model: <%= class_name %>
+    baseUrl: '/<%= plural_name %>'

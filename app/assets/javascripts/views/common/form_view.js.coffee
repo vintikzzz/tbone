@@ -6,7 +6,7 @@ define [
 ], ($, Backbone, App, AlertView) ->
 
   class App.Views.Common.FormView extends AlertView
-    events:
+    events: ->
       "submit": "save"
 
     initialize: ->

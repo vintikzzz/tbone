@@ -1,0 +1,16 @@
+define [
+  'jquery'
+  'backbone'
+  'bootstrap'
+  'views/common/form_view'
+  'templates/<%= plural_name %>/form'
+  'i18n'
+], ($, Backbone, App, FormView) ->
+
+  class App.Views.<%= class_name.pluralize %>.EditView extends FormView
+    template: JST["templates/<%= plural_name %>/form"]
+
+    success: (<%= single_name %>) ->
+      @model = <%= single_name %>
+      @addSuccessAlert(I18n.t '<%= plural_name %>.updated')
+      window.location.hash = "/<%= plural_name %>/#{@model.id}"

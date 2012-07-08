@@ -14,7 +14,8 @@ define [
       "click .no":    "reject"
 
     render: ->
-      @modal = $(@template())
+      template = if @options.template? then @options.template else @template
+      @modal = $(template())
       $(@el).html(@modal)
       @modal.modal({ backdrop: true }).modal('show')
       return this

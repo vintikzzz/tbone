@@ -1,0 +1,11 @@
+object false
+@<%= plural_name %> ||= locals[:object][:page]
+node(:current_page) { @<%= plural_name %>.current_page }
+node(:total_items) { @<%= plural_name %>.total_count }
+node(:per_page) { @<%= plural_name %>.limit_value }
+node(:total_pages) { (@<%= plural_name %>.offset_value / @<%= plural_name %>.limit_value) + 1 }
+node :items do
+  @<%= plural_name %>.map do |p|
+    partial '<%= plural_name %>/show', object: p, root: false
+  end
+end

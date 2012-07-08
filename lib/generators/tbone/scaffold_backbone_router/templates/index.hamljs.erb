@@ -1,0 +1,14 @@
+%h1 Список докторов
+
+%table#<%= plural_name %>-table.table.table-striped
+  %thead
+    %tr
+      %th Id
+      %th
+  %tbody
+
+
+%br
+%a.btn.btn-primary{href: "#/<%= plural_name %>/new"}= I18n.t('<%= plural_name %>.new')
+%br
+%br
