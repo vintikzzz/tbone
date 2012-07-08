@@ -17,36 +17,36 @@ define [
       "<%= plural_name %>.*"                : "index"
 
     initialize: (options) ->
-      @<% plural_name %> = options.collection
+      @<%= plural_name %> = options.collection
 
-    new<% class_name %>: ->
-      view = require 'views/<% plural_name %>/new_view'
-      @view = new view(collection: @<% plural_name %>, model: new @<% plural_name %>.model())
+    new<%= class_name %>: ->
+      view = require 'views/<%= plural_name %>/new_view'
+      @view = new view(collection: @<%= plural_name %>, model: new @<%= plural_name %>.model())
       Layout.setContent(@view)
 
     index: (page = 1) ->
-      @<% plural_name %>.setPage(page)
-      View = require 'views/<% plural_name %>/index_view'
-      @view = new View(collection: @<% plural_name %>)
+      @<%= plural_name %>.setPage(page)
+      View = require 'views/<%= plural_name %>/index_view'
+      @view = new View(collection: @<%= plural_name %>)
       Layout.setContent(@view)
 
     show: (id) ->
-      View = require 'views/<% plural_name %>/show_view'
-      <% single_name %> = this.get<% class_name %> id, (<% single_name %>) ->
-        @view = new View(model: <% single_name %>)
+      View = require 'views/<%= plural_name %>/show_view'
+      <%= single_name %> = this.get<%= class_name %> id, (<%= single_name %>) ->
+        @view = new View(model: <%= single_name %>)
         Layout.setContent(@view)
 
     edit: (id) ->
-      View = require 'views/<% plural_name %>/edit_view'
-      this.get<% class_name %> id, (<% single_name %>) ->
-        @view = new View(model: <% single_name %>)
+      View = require 'views/<%= plural_name %>/edit_view'
+      this.get<%= class_name %> id, (<%= single_name %>) ->
+        @view = new View(model: <%= single_name %>)
         Layout.setContent(@view)
 
-    get<% class_name %>: (id, handler) ->
-      <% single_name %> = @<% plural_name %>.get(id)
-      if <% single_name %>?
-        handler(<% single_name %>)
+    get<%= class_name %>: (id, handler) ->
+      <%= single_name %> = @<%= plural_name %>.get(id)
+      if <%= single_name %>?
+        handler(<%= single_name %>)
       else
-        <% single_name %> = new @<% plural_name %>.model()
-        <% single_name %>.id = id
-        <% single_name %>.fetch(success: handler)
+        <%= single_name %> = new @<%= plural_name %>.model()
+        <%= single_name %>.id = id
+        <%= single_name %>.fetch(success: handler)
