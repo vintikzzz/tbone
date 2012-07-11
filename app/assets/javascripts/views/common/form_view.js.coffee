@@ -7,7 +7,8 @@ define [
 
   class App.Views.Common.FormView extends AlertView
     events: ->
-      "submit": "save"
+      "submit":      "save"
+      "click .back": "back"
 
     initialize: ->
       @model.on("change:errors", @renderErrors, this)
@@ -58,3 +59,7 @@ define [
       @renderAlerts()
       this.$("form").backboneLink(@model)
       return this
+
+    back: (e) ->
+      e.preventDefault()
+      window.history.back()
