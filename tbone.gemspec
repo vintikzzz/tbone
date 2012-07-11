@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{tbone}
-  s.version = "0.1.5"
+  s.version = "0.1.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Pavel Tatarsky}]
-  s.date = %q{2012-07-08}
+  s.date = %q{2012-07-11}
   s.description = %q{Library for mixing together requirejs backbone and twitter bootstrap}
   s.email = %q{fazzzenda@mail.ru}
   s.extra_rdoc_files = [
