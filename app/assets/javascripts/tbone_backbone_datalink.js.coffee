@@ -12,7 +12,7 @@
         inputs = getInputs(cid, name)
         return if inputs.length == 0
         input = $(inputs[0])
-        if (input.is('input') && input.attr('type') == 'text') || input.is('textarea')
+        if (input.is('input') && (input.attr('type') == 'text' || input.attr('type') == 'password')) || input.is('textarea')
           input.val(value)
         if input.is('input') && input.attr('type') == 'radio'
           inputs.filter('[value="' + value + '"]').attr('checked', true)
@@ -23,7 +23,7 @@
       getValue = (inputs) ->
         input = $(inputs[0]) if inputs.length > 0
         val = null
-        if (input.is('input') && input.attr('type') == 'text') || input.is('textarea')
+        if (input.is('input') && (input.attr('type') == 'text' || input.attr('type') == 'password')) || input.is('textarea')
           val = input.val()
         if input.is('input') && input.attr('type') == 'radio'
           val = inputs.filter(':checked').val()
