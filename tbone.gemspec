@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{tbone}
-  s.version = "0.1.6"
+  s.version = "0.1.7"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Pavel Tatarsky}]
-  s.date = %q{2012-07-11}
+  s.date = %q{2012-07-18}
   s.description = %q{Library for mixing together requirejs backbone and twitter bootstrap}
   s.email = %q{fazzzenda@mail.ru}
   s.extra_rdoc_files = [
@@ -32,6 +32,7 @@ Gem::Specification.new do |s|
     "app/assets/javascripts/models/.gitkeep",
     "app/assets/javascripts/models/token.js.coffee",
     "app/assets/javascripts/tbone.js.coffee",
+    "app/assets/javascripts/tbone_backbone_datalink.js.coffee",
     "app/assets/javascripts/templates/.gitkeep",
     "app/assets/javascripts/templates/common/alert_message.jst.hamljs",
     "app/assets/javascripts/templates/common/confirm.jst.hamljs",
@@ -40,6 +41,7 @@ Gem::Specification.new do |s|
     "app/assets/javascripts/views/common/alert_message_view.js.coffee",
     "app/assets/javascripts/views/common/alert_view.js.coffee",
     "app/assets/javascripts/views/common/confirm_view.js.coffee",
+    "app/assets/javascripts/views/common/form_part_view.js.coffee",
     "app/assets/javascripts/views/common/form_view.js.coffee",
     "app/assets/javascripts/views/common/pager_view.js.coffee",
     "app/assets/javascripts/views/tokens/show_view.js.coffee",
