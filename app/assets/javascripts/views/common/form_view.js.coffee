@@ -7,11 +7,15 @@ define [
 
   class App.Views.Common.FormView extends AlertView
     events: ->
-      "submit":      "save"
-      "click .back": "back"
+      'submit':      'save'
+      'click .back': 'back'
 
     initialize: ->
-      @model.on("change:errors", @renderErrors, this)
+      @model.on('change:errors', @renderErrors, this)
+      @on 'databind', @databind, @
+
+    databind: ->
+
 
     cleanErrors: ->
       @form.find(".error").removeClass("error")
@@ -39,13 +43,14 @@ define [
       @model.set({errors: $.parseJSON(jqXHR.responseText)})
 
     markErrorField: (name, error) ->
-      field = @form.find(":input[name=" + name + "]")
-      field.parent().append("<div class='help-block'>" + error + "</div>")
-      field.parent().parent().addClass("error")
+      field = @form.find(":input[name=" + name + '_' + @model.cid + "]")
+      controlGroup = field.parents('.control-group')
+      controlGroup.append("<div class='help-block'>" + error + "</div>")
+      controlGroup.addClass("error")
 
     renderErrors: ->
       @errors = @model.get('errors')
-      @form = this.$el.find("form")
+      @form = $(@el)
       @cleanErrors()
       if @errors?
         if @errors.error?
@@ -57,9 +62,10 @@ define [
     render: ->
       $(@el).html(@template(@model.toJSON() ))
       @renderAlerts()
-      this.$("form").backboneLink(@model)
+      @trigger('databind')
+      @form = $(@el)
+      @form.backboneLink(@model)
       return this
 
-    back: (e) ->
-      e.preventDefault()
+    back: ->
       window.history.back()

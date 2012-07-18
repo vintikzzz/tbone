@@ -9,8 +9,8 @@ module Tbone
             'exports' => 'Backbone'
           },
           'backbone_rails_sync' => ['backbone'],
-          'backbone_datalink' => ['backbone'],
-          'backbone-rails' => ['backbone', 'backbone_rails_sync', 'backbone_datalink']
+          'tbone_backbone_datalink' => ['backbone'],
+          'backbone-rails' => ['backbone', 'backbone_rails_sync', 'tbone_backbone_datalink']
         },
         'wrap' => true
       }
