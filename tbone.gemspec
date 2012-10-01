@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.authors = [%q{Pavel Tatarsky}]
   s.date = %q{2012-07-18}
   s.description = %q{Library for mixing together requirejs backbone and twitter bootstrap}
-  s.email = %q{fazzzenda@mail.ru}
+  s.email = %q{pavel.tatarsky@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"

@@ -4,10 +4,12 @@ define [
   'backbone'
   'bootstrap'
 ], ($, Backbone, App) ->
-  class Layout
+  class Layout extends Backbone.Model
     setContent: (content) ->
       do @currentContent.close if @currentContent?
       @currentContent = content
-      ($ '#content').html content.render().el
+      e = content.render().el
+      @trigger('render:content', e)
+      ($ '#content').html e
 
   App.Helpers.Layout = new Layout
