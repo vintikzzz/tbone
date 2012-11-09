@@ -1,0 +1,31 @@
+- pages = for i in [1..@pageInfo.pages]
+-   {
+-     url: @urlPrefix + i,
+-     num: i,
+-     class: if i == @pageInfo.page then 'active' else null 
+-   }
+-
+- makeArrow = (data, urlPrefix) ->
+-   if data == false
+-     {
+-       class: 'disabled',
+-       url: '#'
+-     }
+-   else
+-     {
+-       class: null,
+-       url: urlPrefix + data
+-     }
+-
+- prev = makeArrow(@pageInfo.prev, @urlPrefix)
+- next = makeArrow(@pageInfo.next, @urlPrefix)
+- if @pageInfo.pages > 1
+  .pagination
+    %ul
+      %li{class: prev['class']}
+        %a{href: prev['url']} «
+      - for page in pages
+        %li{class: page['class']}
+          %a{href: page['url']}= page['num']
+      %li{class: next['class']}
+        %a{href: next['url']} »

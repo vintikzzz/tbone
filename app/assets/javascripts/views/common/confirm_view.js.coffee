@@ -6,7 +6,7 @@ define [
 ], ($, Backbone, App) ->
 
   class App.Views.Common.ConfirmView extends Backbone.View
-    template: JST["templates/common/confirm"]
+    template: JST["common/confirm"]
 
     events:
       "click .yes":   "accept"

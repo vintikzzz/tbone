@@ -7,13 +7,16 @@ define [
 ], ($, Backbone, App, AlertView) ->
 
   class App.Views.Common.PagerView extends AlertView
-    template: JST["templates/common/pager"]
+    template: JST["common/pager"]
 
     initialize: ->
       @collection.on('add', @render, this)
       @collection.on('remove', @render, this)
 
+    stub: (e) ->
+      e.preventDefault()
+
     render: ->
       super
       $(@el).html(@template({pageInfo: @collection.toJSON().pageInfo, urlPrefix: @options.urlPrefix}))
-      return this
+      @

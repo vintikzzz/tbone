@@ -57,15 +57,15 @@ define [
           @addErrorAlert(@errors.error)
           @renderAlerts()
         @markErrorField(name, error) for name, error of @errors
-      return this
+      @
 
     render: ->
-      $(@el).html(@template(@model.toJSON() ))
+      $(@el).html(@template(@))
       @renderAlerts()
       @trigger('databind')
       @form = $(@el)
       @form.backboneLink(@model)
-      return this
+      @
 
     back: ->
       window.history.back()

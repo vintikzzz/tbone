@@ -3,6 +3,7 @@ define [
   'models/token'
   'views/tokens/show_view'
   'backbone-rails'
+  'hamlcoffee'
 ],
 
 ($, Token, TokensView) ->

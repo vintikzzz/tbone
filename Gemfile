@@ -10,3 +10,21 @@ group :development do
   gem "bundler"
   gem "jeweler"
 end
+group :assets do
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'twitter-bootstrap-rails'
+  gem 'uglifier'
+  gem 'therubyracer'
+  gem 'less-rails'
+  gem 'haml_coffee_assets'
+end
+gem 'i18n-js'
+gem 'kaminari'
+gem 'haml-rails'
+gem 'coffee-filter'
+gem 'rabl'
+gem 'jquery-rails'
+gem 'yajl-ruby'
+gem 'rails-backbone'
+gem 'requirejs-rails'

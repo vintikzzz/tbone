@@ -6,15 +6,15 @@ define [
 ], ($, Backbone, App) ->
 
   class App.Views.Common.AlertMessageView extends Backbone.View
-    template: JST["templates/common/alert_message"]
+    template: JST["common/alert_message"]
 
     events: ->
       'click .close': 'destroy'
 
     render: ->
-      $(@el).html(@template(@model.toJSON()))
+      $(@el).html(@template @)
       @model.set('shown', true)
-      return this
+      @
 
     destroy: ->
       @model.destroy()

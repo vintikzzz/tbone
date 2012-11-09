@@ -4,7 +4,7 @@ module Tbone
   module Generators
     class BackboneModelGenerator < ::Rails::Generators::NamedBase
       source_root File.expand_path("../templates", __FILE__)
-      desc "This generator generates simple T-bone generator"
+      desc "This generator generates simple T-bone model"
       def create_controller
         template "model.coffee.erb", "app/assets/javascripts/models/#{single_name}.js.coffee"  
         template "collection.coffee.erb", "app/assets/javascripts/collections/#{plural_name}.js.coffee"  
