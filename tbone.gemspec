@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{tbone}
-  s.version = "0.2.0"
+  s.name = "tbone"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Pavel Tatarsky}]
-  s.date = %q{2012-11-09}
-  s.description = %q{Library for mixing together requirejs backbone and twitter bootstrap}
-  s.email = %q{fazzzenda@mail.ru}
+  s.authors = ["Pavel Tatarsky"]
+  s.date = "2013-05-30"
+  s.description = "Library for mixing together requirejs backbone and twitter bootstrap"
+  s.email = "fazzzenda@mail.ru"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -81,11 +81,11 @@ Gem::Specification.new do |s|
     "test/helper.rb",
     "test/test_tbone.rb"
   ]
-  s.homepage = %q{http://github.com/vintikzzz/tbone}
-  s.licenses = [%q{MIT}]
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.6}
-  s.summary = %q{Library for mixing together requirejs backbone and twitter bootstrap}
+  s.homepage = "http://github.com/vintikzzz/tbone"
+  s.licenses = ["MIT"]
+  s.require_paths = ["lib"]
+  s.rubygems_version = "1.8.25"
+  s.summary = "Library for mixing together requirejs backbone and twitter bootstrap"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
@@ -100,6 +100,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<yajl-ruby>, [">= 0"])
       s.add_runtime_dependency(%q<rails-backbone>, [">= 0"])
       s.add_runtime_dependency(%q<requirejs-rails>, [">= 0"])
+      s.add_runtime_dependency(%q<rake>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, [">= 0"])
       s.add_development_dependency(%q<bundler>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
@@ -113,6 +114,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<yajl-ruby>, [">= 0"])
       s.add_dependency(%q<rails-backbone>, [">= 0"])
       s.add_dependency(%q<requirejs-rails>, [">= 0"])
+      s.add_dependency(%q<rake>, [">= 0"])
       s.add_dependency(%q<rdoc>, [">= 0"])
       s.add_dependency(%q<bundler>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
@@ -127,6 +129,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<yajl-ruby>, [">= 0"])
     s.add_dependency(%q<rails-backbone>, [">= 0"])
     s.add_dependency(%q<requirejs-rails>, [">= 0"])
+    s.add_dependency(%q<rake>, [">= 0"])
     s.add_dependency(%q<rdoc>, [">= 0"])
     s.add_dependency(%q<bundler>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
