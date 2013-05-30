@@ -19,20 +19,19 @@ define ['backbone'], (Backbone) ->
         this.fetch()
       this)
 
-    fetch: (options) ->
-      options ||= {}
+    fetch: (options = {}) ->
       @trigger "fetching"
       self = this
       success = options.success
       options.success = (resp) ->
         self.trigger "fetched"
-        success self, resp  if success
+        success self, resp if success
 
       Backbone.Collection::fetch.call this, options
 
-    setPage: (num) ->
+    setPage: (num, options) ->
       @page = num
-      this.fetch()
+      @fetch options
 
 
     parse: (resp) ->
@@ -57,7 +56,7 @@ define ['backbone'], (Backbone) ->
 
       max = Math.min(@total, @page * @perPage)
       max = @total  if @total is @pages * @perPage
-      info.range = [ (@page - 1) * @perPage + 1, max ]
+      info.range = [(@page - 1) * @perPage + 1, max]
       info.prev = @page - 1  if @page > 1
       info.next = @page + 1  if @page < info.pages
       info
@@ -68,12 +67,12 @@ define ['backbone'], (Backbone) ->
       data['pageInfo'] = this.pageInfo()
       data
 
-    nextPage: ->
+    nextPage: (options = {}) ->
       return false  unless @pageInfo().next
       @page = @page + 1
-      @fetch()
+      @fetch options
 
-    previousPage: ->
+    previousPage: (options = {}) ->
       return false  unless @pageInfo().prev
       @page = @page - 1
-      @fetch()
+      @fetch options

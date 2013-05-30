@@ -134,6 +134,7 @@ DEPENDENCIES
   less-rails
   rabl
   rails-backbone
+  rake
   rdoc
   requirejs-rails
   sass-rails
