@@ -7,41 +7,31 @@ define ['backbone'], (Backbone) ->
         super
 
     initialize: ->
-      # _.bindAll this, "parse", "url", "pageInfo", "nextPage", "previousPage"
+      _.bindAll @, 'fetch'
       @page = 1
       @perPage ||= 10
-      this.on('add', (m) ->
-        this.fetch()
-      this)
-      this.on('remove', (m) ->
-        if this.length == 0 and @page > 1
-          @page++
-        this.fetch()
-      this)
 
     fetch: (options = {}) ->
-      @trigger "fetching"
-      self = this
       success = options.success
-      options.success = (resp) ->
-        self.trigger "fetched"
-        success self, resp if success
+      options.reset = true
+      options.success = (resp) =>
+        success(@, resp) if success?
 
-      Backbone.Collection::fetch.call this, options
+      Backbone.Collection::fetch.call @, options
 
-    setPage: (num, options) ->
+    setPage: (num, options = {}) ->
       @page = num
       @fetch options
 
 
     parse: (resp) ->
-      @page = resp.current_page
+      @page    = resp.current_page
       @perPage = resp.per_page
-      @total = resp.total_items
+      @total   = resp.total_items
       resp.items
 
     url: ->
-      @baseUrl + "?" + $.param(
+      @baseUrl + '?' + $.param(
         page: @page
       )
 
@@ -55,7 +45,7 @@ define ['backbone'], (Backbone) ->
         next: false
 
       max = Math.min(@total, @page * @perPage)
-      max = @total  if @total is @pages * @perPage
+      max = @total if @total is info.pages * @perPage
       info.range = [(@page - 1) * @perPage + 1, max]
       info.prev = @page - 1  if @page > 1
       info.next = @page + 1  if @page < info.pages
@@ -68,11 +58,11 @@ define ['backbone'], (Backbone) ->
       data
 
     nextPage: (options = {}) ->
-      return false  unless @pageInfo().next
+      return false unless @pageInfo().next
       @page = @page + 1
       @fetch options
 
     previousPage: (options = {}) ->
-      return false  unless @pageInfo().prev
+      return false unless @pageInfo().prev
       @page = @page - 1
       @fetch options
