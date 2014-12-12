@@ -1,4 +1,6 @@
-(($) ->
+define [
+  'jquery'
+], ($) ->
   $.extend $.fn,
     backboneLink: (model) ->
       form = $(this)
@@ -40,5 +42,3 @@
         inputs.bind 'change', (e) =>
           el = $(e.target)
           model.set(name, getValue(el))
-
-) jQuery

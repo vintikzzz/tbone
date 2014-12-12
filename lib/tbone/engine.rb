@@ -29,7 +29,7 @@ module Tbone
         'bootstrap-typeahead'
       ]
       conf['paths'] = {}
-      jquery_plugs.each { |e| 
+      jquery_plugs.each { |e|
           conf['paths'][e] = "twitter/bootstrap/#{e}"
           conf['shim'][e] = ['jquery']
       }
