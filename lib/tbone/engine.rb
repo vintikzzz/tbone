@@ -1,5 +1,6 @@
 require 'rails'
 module Tbone
+  mattr_accessor :js_prefix
   class Engine < Rails::Engine
     initializer "tbone" do |app|
       conf = {
@@ -15,27 +16,28 @@ module Tbone
         'wrap' => true
       }
       jquery_plugs = [
-        'bootstrap-transition',
-        'bootstrap-alert',
-        'bootstrap-modal',
-        'bootstrap-dropdown',
-        'bootstrap-scrollspy',
-        'bootstrap-tab',
-        'bootstrap-tooltip',
-        'bootstrap-popover',
-        'bootstrap-button',
-        'bootstrap-collapse',
-        'bootstrap-carousel',
-        'bootstrap-typeahead'
+        'transition',
+        'alert',
+        'modal',
+        'dropdown',
+        'scrollspy',
+        'tab',
+        'tooltip',
+        'popover',
+        'button',
+        'collapse',
+        'carousel',
+        'affix'
       ]
       conf['paths'] = {}
       jquery_plugs.each { |e|
-          conf['paths'][e] = "twitter/bootstrap/#{e}"
-          conf['shim'][e] = ['jquery']
+          conf['paths']["bootstrap_#{e}"] = "#{Tbone.js_prefix}#{e}"
+          conf['shim']["bootstrap_#{e}"] = ['jquery']
       }
-      conf['shim']['bootstrap-popover'] << 'bootstrap-tooltip'
-      conf['shim']['bootstrap'] = jquery_plugs
-      app.config.requirejs.user_config.deep_merge!(conf)
+      conf['shim']['bootstrap_popover'] << 'bootstrap_tooltip'
+      conf['shim']['bootstrap'] ||= []
+      conf['shim']['bootstrap'].concat jquery_plugs.map { |e| "bootstrap_#{e}" }
+      app.config.requirejs.user_config.deeper_merge!(conf)
       Rabl.configure do |config|
         config.include_json_root = false
       end

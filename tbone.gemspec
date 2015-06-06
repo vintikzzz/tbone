@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Pavel Tatarsky"]
-  s.date = "2014-12-12"
+  s.date = "2015-06-06"
   s.description = "Library for mixing together requirejs backbone and twitter bootstrap"
   s.email = "fazzzenda@mail.ru"
   s.extra_rdoc_files = [
@@ -86,35 +86,31 @@ Gem::Specification.new do |s|
   ]
   s.homepage = "http://github.com/vintikzzz/tbone"
   s.licenses = ["MIT"]
-  s.rubygems_version = "2.4.2"
+  s.rubygems_version = "2.4.7"
   s.summary = "Library for mixing together requirejs backbone and twitter bootstrap"
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<i18n-js>, [">= 0"])
+      s.add_runtime_dependency(%q<deep_merge>, [">= 0"])
       s.add_runtime_dependency(%q<kaminari>, [">= 0"])
       s.add_runtime_dependency(%q<haml-rails>, [">= 0"])
       s.add_runtime_dependency(%q<coffee-filter>, [">= 0"])
       s.add_runtime_dependency(%q<rabl>, [">= 0"])
-      s.add_runtime_dependency(%q<jquery-rails>, [">= 0"])
       s.add_runtime_dependency(%q<yajl-ruby>, [">= 0"])
-      s.add_runtime_dependency(%q<rails-backbone>, [">= 0"])
       s.add_runtime_dependency(%q<requirejs-rails>, [">= 0"])
       s.add_runtime_dependency(%q<rake>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, [">= 0"])
       s.add_development_dependency(%q<bundler>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
     else
-      s.add_dependency(%q<i18n-js>, [">= 0"])
+      s.add_dependency(%q<deep_merge>, [">= 0"])
       s.add_dependency(%q<kaminari>, [">= 0"])
       s.add_dependency(%q<haml-rails>, [">= 0"])
       s.add_dependency(%q<coffee-filter>, [">= 0"])
       s.add_dependency(%q<rabl>, [">= 0"])
-      s.add_dependency(%q<jquery-rails>, [">= 0"])
       s.add_dependency(%q<yajl-ruby>, [">= 0"])
-      s.add_dependency(%q<rails-backbone>, [">= 0"])
       s.add_dependency(%q<requirejs-rails>, [">= 0"])
       s.add_dependency(%q<rake>, [">= 0"])
       s.add_dependency(%q<rdoc>, [">= 0"])
@@ -122,14 +118,12 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<jeweler>, [">= 0"])
     end
   else
-    s.add_dependency(%q<i18n-js>, [">= 0"])
+    s.add_dependency(%q<deep_merge>, [">= 0"])
     s.add_dependency(%q<kaminari>, [">= 0"])
     s.add_dependency(%q<haml-rails>, [">= 0"])
     s.add_dependency(%q<coffee-filter>, [">= 0"])
     s.add_dependency(%q<rabl>, [">= 0"])
-    s.add_dependency(%q<jquery-rails>, [">= 0"])
     s.add_dependency(%q<yajl-ruby>, [">= 0"])
-    s.add_dependency(%q<rails-backbone>, [">= 0"])
     s.add_dependency(%q<requirejs-rails>, [">= 0"])
     s.add_dependency(%q<rake>, [">= 0"])
     s.add_dependency(%q<rdoc>, [">= 0"])
